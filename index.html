@@ -1,31 +1,95 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <style>
-    /* Add your CSS here */
-  </style>
-</head>
-<body>
-  <div>This is a div</div>
-  <div class="box">This div has a class "box"</div>
-  <span>This is a span</span>
-  <button>Click me</button>
-  <input type="text" required>
-  <input type="checkbox" checked>
-  <input type="radio" disabled>
-  <ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-    <li>Item 4</li>
-    <li>Item 5</li>
-  </ul>
-  <a href="#">Link 1</a>
-  <a href="#">Link 2</a>
-  <div>
-    <span>
-      <b>nested text</b>
-    </span>
-  </div>
-</body>
+  <head>
+    <style>
+      /* Add your CSS here */
+      div span b {
+        color: purple;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        padding: 20px;
+        margin: 10px;
+        border: 1px solid black;
+      }
+
+      /*Styling for bolding direct child li of ul*/
+      ul > li {
+        font-weight: bold;
+      }
+      ul ~ a {
+        color: green;
+      }
+      /*Specific style for checked checkboxes */
+      input[type="checkbox"]:checked {
+        background-color: yellow !important; /* Using !important to ensure override */
+        -webkit-appearance: none; /* Disables native styling */
+        appearance: none;
+        width: 20px; /* Custom size */
+        height: 20px; /* Custom size */
+      }
+
+      /* Adding a checkmark to checked checkboxes */
+      input[type="checkbox"]:checked:after {
+        content: "✓";
+        display: block;
+        color: black;
+        position: relative;
+        left: 5px; /* Center the check mark */
+        top: -3px;
+      }
+
+      /* Styling for disabled inputs*/
+      input:disabled {
+        background-color: gray;
+        color: white;
+      }
+      /*Styling for first-child of <li> to have a blue background*/
+      ul li:first-child {
+        background-color: blue;
+      }
+      /*This removes underline from all <a> tag*/
+      a {
+        text-decoration: none;
+      }
+      /*Styling for the last <a> to ensure it's underlined*/
+      a:last-of-type {
+        text-decoration: underline;
+      }
+      /*Styling if :not first child then set color to orange*/
+      ul li:not(:first-child) {
+        color: orange;
+      }
+      /*Styling element if it is required and text then create a black outline*/
+      input[type="text"] [required] {
+        box-shadow: 1px 1px 5px black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>This is a div</div>
+    <div class="box">This div has a class "box"</div>
+    <span>This is a span</span>
+    <button>Click me</button>
+    <input type="text" required />
+    <input type="checkbox" checked />
+    <input type="radio" disabled />
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <div>
+      <span>
+        <b>nested text</b>
+      </span>
+    </div>
+  </body>
 </html>
